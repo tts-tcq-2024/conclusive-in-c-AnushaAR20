@@ -71,3 +71,14 @@ TEST(TypeWiseAlertTestSuite, SendsCorrectControllerMessageForTooLowBreach) {
   // Expected output format: header followed by breach type
   EXPECT_EQ(output, "feed : 1\n");
 }
+
+TEST(TypeWiseAlertTestSuite, SendsCorrectControllerMessageForTooHighBreach) {
+  // Capture the standard output to check the output
+  testing::internal::CaptureStdout();
+  sendToController(TOO_HIGH);
+  std::string output = testing::internal::GetCapturedStdout();
+
+  // Expected output format: header followed by breach type
+  EXPECT_EQ(output, "feed : 2\n");
+}
+
