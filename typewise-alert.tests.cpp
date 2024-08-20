@@ -61,3 +61,13 @@ TEST(TypeWiseAlertTestSuite, DoesNotSendEmailForNormalBreach) {
 
   EXPECT_EQ(output, "");  // No output expected for NORMAL
 }
+
+TEST(TypeWiseAlertTestSuite, SendsCorrectControllerMessageForTooLowBreach) {
+  // Capture the standard output to check the output
+  testing::internal::CaptureStdout();
+  sendToController(TOO_LOW);
+  std::string output = testing::internal::GetCapturedStdout();
+
+  // Expected output format: header followed by breach type
+  EXPECT_EQ(output, "feed : 1\n");
+}
