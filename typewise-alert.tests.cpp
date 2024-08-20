@@ -42,3 +42,13 @@ TEST(TypeWiseAlertTestSuite, SendsCorrectEmailForTooLowBreach) {
   EXPECT_NE(output.find("To: a.b@c.com"), std::string::npos);
   EXPECT_NE(output.find("Hi, the temperature is too low"), std::string::npos);
 }
+
+TEST(TypeWiseAlertTestSuite, SendsCorrectEmailForTooHighBreach) {
+  // Capturing the standard output to check the output
+  testing::internal::CaptureStdout();
+  sendToEmail(TOO_HIGH);
+  std::string output = testing::internal::GetCapturedStdout();
+
+  EXPECT_NE(output.find("To: a.b@c.com"), std::string::npos);
+  EXPECT_NE(output.find("Hi, the temperature is too high"), std::string::npos);
+}
