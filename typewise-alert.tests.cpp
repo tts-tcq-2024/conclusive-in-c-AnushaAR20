@@ -33,11 +33,11 @@ TEST(TypeWiseAlertTestSuite, ClassifiesTemperatureBreachForMedActiveCooling) {
   EXPECT_EQ(classifyTemperatureBreach(MED_ACTIVE_COOLING, 0), NORMAL);
 }
 
-// TEST(TypeWiseAlertTestSuite, ClassifyTemperatureBreachWithInvalidInputs) {
-//   // Assuming the CoolingType enum has valid values within 0 to 2
-//   EXPECT_EQ(classifyTemperatureBreach(static_cast<CoolingType>(-1), 25), NORMAL); // Invalid cooling type
-//   EXPECT_EQ(classifyTemperatureBreach(static_cast<CoolingType>(3), 25), NORMAL);  // Invalid cooling type
-// }
+TEST(TypeWiseAlertTestSuite, ClassifyTemperatureBreachWithInvalidInputs) {
+  // Assuming the CoolingType enum has valid values within 0 to 2
+  //EXPECT_EQ(classifyTemperatureBreach(static_cast<CoolingType>(-1), 25), NORMAL); // Invalid cooling type
+  EXPECT_EQ(classifyTemperatureBreach(static_cast<CoolingType>(3), 25), NORMAL);  // Invalid cooling type
+}
 
 TEST(TypeWiseAlertTestSuite, SendsCorrectEmailForTooLowBreach) {
   // Capturing the standard output to check the output
