@@ -1,7 +1,7 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
-BreachType inferBreach(double value, int lowerLimit, int upperLimit) {
+BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if (value < lowerLimit) {
     return TOO_LOW;
   }
@@ -12,8 +12,8 @@ BreachType inferBreach(double value, int lowerLimit, int upperLimit) {
 }
 
 struct TemperatureLimits {
-  int lowerLimit;
-  int upperLimit;
+  double lowerLimit;
+  double upperLimit;
 };
 
 const TemperatureLimits coolingTypeLimits[] = {
