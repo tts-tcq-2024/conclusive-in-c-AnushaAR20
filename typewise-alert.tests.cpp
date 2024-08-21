@@ -33,11 +33,6 @@ TEST(TypeWiseAlertTestSuite, ClassifiesTemperatureBreachForMedActiveCooling) {
   EXPECT_EQ(classifyTemperatureBreach(MED_ACTIVE_COOLING, 0), NORMAL);
 }
 
-// TEST(TypeWiseAlertTestSuite, ClassifyTemperatureBreachWithInvalidInputs) {
-//   // Assuming the CoolingType enum has valid values within 0 to 2
-//   //EXPECT_EQ(classifyTemperatureBreach(static_cast<CoolingType>(-1), 25), NORMAL); // Invalid cooling type
-//   EXPECT_EQ(classifyTemperatureBreach(static_cast<CoolingType>(3), 25), NORMAL);  // Invalid cooling type
-// }
 
 TEST(TypeWiseAlertTestSuite, SendsCorrectEmailForTooLowBreach) {
   // Capturing the standard output to check the output
@@ -98,22 +93,4 @@ TEST(TypeWiseAlertTestSuite, SendsCorrectControllerMessageForNormalBreach) {
   EXPECT_EQ(output, "feed : 0\n");
 }
 
-// TEST(TypeWiseAlertTestSuite, SendToEmailBoundaryCases) {
-//   // No output should occur for a normal condition, even if enum value is on the boundary
-//   testing::internal::CaptureStdout();
-//   sendToEmail(static_cast<BreachType>(0)); // NORMAL is 0
-//   std::string output = testing::internal::GetCapturedStdout();
-//   EXPECT_EQ(output, ""); // No output expected for NORMAL
-
-//   // Handling unexpected enum values
-//   testing::internal::CaptureStdout();
-//   sendToEmail(static_cast<BreachType>(-1)); // Invalid breach type
-//   output = testing::internal::GetCapturedStdout();
-//   EXPECT_EQ(output, ""); // No output expected for invalid enum values
-
-//   testing::internal::CaptureStdout();
-//   sendToEmail(static_cast<BreachType>(3)); // Invalid breach type
-//   output = testing::internal::GetCapturedStdout();
-//   EXPECT_EQ(output, ""); // No output expected for out-of-bound enum values
-// }
 
