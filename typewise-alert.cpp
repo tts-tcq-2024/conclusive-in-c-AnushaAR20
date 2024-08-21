@@ -12,8 +12,8 @@ BreachType inferBreach(double value, int lowerLimit, int upperLimit) {
 }
 
 struct TemperatureLimits {
-  double lowerLimit;
-  double upperLimit;
+  int lowerLimit;
+  int upperLimit;
 };
 
 const TemperatureLimits coolingTypeLimits[] = {
